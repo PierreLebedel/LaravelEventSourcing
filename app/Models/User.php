@@ -36,12 +36,12 @@ class User extends Projection implements
     use CanResetPassword;
     use HasFactory;
     use HasUuids;
+    use HasUuids;
     use InteractsWithMedia;
     use ModelHasAggregate;
     use MustVerifyEmail;
     use Notifiable;
     use SoftDeletes;
-    use HasUuids;
 
     protected $fillable = [
         'uuid',

@@ -63,7 +63,7 @@ new #[Layout('components.layouts.guest')] class extends Component
 <div>
     <form wire:submit="register" enctype="multipart/form-data">
 
-        <div class="flex items-center">
+        <div class="flex items-center pt-2">
             <div class="flex-none rounded-full h-20 w-20 bg-gray-200 overflow-hidden mr-4">
                 @if ($profilePicture) 
                     <img src="{{ $profilePicture->temporaryUrl() }}" class="object-cover h-20 w-20">
@@ -80,7 +80,7 @@ new #[Layout('components.layouts.guest')] class extends Component
         </div>
 
         <!-- Name -->
-        <div class="mt-4">
+        <div class="mt-5">
             <x-input-label for="name" :value="__('Name')" />
             <x-forms.text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />

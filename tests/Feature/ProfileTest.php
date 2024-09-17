@@ -18,6 +18,44 @@ test('profile page is displayed', function () {
         ->assertSeeVolt('profile.delete-user-form');
 });
 
+test('profile picture can be set', function () {
+    $user = User::factory()->create();
+
+    $this->actingAs($user);
+
+    $file = Illuminate\Http\UploadedFile::fake()->image('avatar.png');
+
+    $component = Volt::test('profile.update-profile-picture-form')
+        ->set('profilePicture', $file)
+        ->call('updateProfilePicture');
+
+    $component
+        ->assertHasNoErrors()
+        ->assertNoRedirect();
+
+    $user->refresh();
+
+});
+
+test('profile picture must be an image', function () {
+    $user = User::factory()->create();
+
+    $this->actingAs($user);
+
+    $file = Illuminate\Http\UploadedFile::fake()->create('video.mp4');
+
+    $component = Volt::test('profile.update-profile-picture-form')
+        ->set('profilePicture', $file)
+        ->call('updateProfilePicture');
+
+    $component
+        ->assertHasErrors()
+        ->assertNoRedirect();
+
+    $user->refresh();
+
+});
+
 test('profile information can be updated', function () {
     $user = User::factory()->create();
 

@@ -35,8 +35,8 @@ new class extends Component {
         $media = $user->getFirstMedia('profile-picture');
 
         $this->dispatch('profile-picture-updated', conversions:[
-            'small'  => $media->getUrl('small'),
-            'avatar' => $media->getUrl('avatar'),
+            'small'  => $media?->getUrl('small') ?? null,
+            'avatar' => $media?->getUrl('avatar') ?? null,
         ]);
     }
 

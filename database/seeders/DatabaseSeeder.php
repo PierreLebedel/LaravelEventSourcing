@@ -15,20 +15,22 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $userAttributes = User::factory()->makeOne([
-            'name'  => 'Test User',
-            'email' => 'test@example.com',
-        ])->getAttributes();
-
         User::makeAggregate()
-            ->create($userAttributes)
+            ->create(
+                User::factory()->make([
+                    'name'  => 'Test User',
+                    'email' => 'test@example.com',
+                ])->getAttributes()
+            )
             ->persist();
 
         User::makeAggregate()
-            ->create(array_merge($userAttributes, [
-                'name'  => 'Test User2',
-                'email' => 'test2@example.com',
-            ]))
+            ->create(
+                User::factory()->make([
+                    'name'  => 'Test2 User',
+                    'email' => 'test2@example.com',
+                ])->getAttributes()
+            )
             ->persist();
     }
 }

@@ -18,4 +18,6 @@ php artisan media-library:regenerate; #regenerate all conversions files
 ```shell
 composer sniff; # preview changes
 composer lint; # execute changes
+php artisan test; # run tests
+composer clean; # lint code & run tests
 ```
