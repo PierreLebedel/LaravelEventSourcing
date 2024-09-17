@@ -12,6 +12,7 @@ test('profile page is displayed', function () {
 
     $response
         ->assertOk()
+        ->assertSeeVolt('profile.update-profile-picture-form')
         ->assertSeeVolt('profile.update-profile-information-form')
         ->assertSeeVolt('profile.update-password-form')
         ->assertSeeVolt('profile.delete-user-form');
@@ -69,7 +70,8 @@ test('user can delete their account', function () {
         ->assertRedirect('/');
 
     $this->assertGuest();
-    $this->assertNull($user->fresh());
+
+    $this->assertSoftDeleted($user);
 });
 
 test('correct password must be provided to delete account', function () {

@@ -41,12 +41,14 @@ class User extends Projection implements
     use MustVerifyEmail;
     use Notifiable;
     use SoftDeletes;
+    use HasUuids;
 
     protected $fillable = [
         'uuid',
         'name',
         'email',
         'password',
+        'email_verified_at',
         'created_at',
         'updated_at',
     ];
