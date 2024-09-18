@@ -34,6 +34,9 @@ new class extends Component {
 
         $media = $user->getFirstMedia('profile-picture');
 
+        $this->previousProfilePicture = $media?->getUrl('avatar') ?? null;
+        $this->profilePicture = null;
+
         $this->dispatch('profile-picture-updated', conversions:[
             'small'  => $media?->getUrl('small') ?? null,
             'avatar' => $media?->getUrl('avatar') ?? null,
@@ -55,25 +58,30 @@ new class extends Component {
 
     <form wire:submit="updateProfilePicture" class="mt-6 space-y-6" enctype="multipart/form-data">
 
-        <div class="rounded-full h-40 w-40 bg-gray-200 overflow-hidden">
-            @if ($profilePicture) 
-                <img src="{{ $profilePicture->temporaryUrl() }}" class="object-cover h-40 w-40">
-            @elseif($previousProfilePicture)
-                <img src="{{ $previousProfilePicture }}" class="object-cover h-40 w-40">
-            @endif
+        <div class="">
+            <div class="rounded-full h-40 w-40 bg-gray-200 overflow-hidden mx-auto">
+                @if ($profilePicture) 
+                    <img src="{{ $profilePicture->temporaryUrl() }}" class="object-cover h-40 w-40">
+                @elseif($previousProfilePicture)
+                    <img src="{{ $previousProfilePicture }}" class="object-cover h-40 w-40">
+                @endif
+            </div>
         </div>
 
         <div>
-            <x-forms.input-label for="profilePicture" :value="__('Profile picture')" />
+            {{-- <x-forms.input-label for="profilePicture" :value="__('Profile picture')" /> --}}
             <x-forms.file-input wire:model="profilePicture" required class="mt-1 block w-full" name="profilePicture" id="profilePicture" accept="image/*" />
             <x-forms.input-error class="mt-2" :messages="$errors->get('profilePicture')" />
         </div>
-
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
             <div wire:loading wire:target="profilePicture" class="text-sm text-gray-600">{{ __('Uploading...') }}</div>
+
+            @if($profilePicture)
+            <div class="text-sm text-gray-600">{{ __('Ready to save.') }}</div>
+            @endif
 
             <x-action-message class="me-3" on="profile-picture-updated">{{ __('Saved.') }}</x-action-message>
         </div>
