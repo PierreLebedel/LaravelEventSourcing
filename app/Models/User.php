@@ -13,6 +13,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -45,7 +46,8 @@ class User extends Projection implements
 
     protected $fillable = [
         'uuid',
-        'name',
+        'firstname',
+        'lastname',
         'email',
         'password',
         'email_verified_at',
@@ -64,6 +66,13 @@ class User extends Projection implements
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
         ];
+    }
+
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->firstname . ' ' . $this->lastname,
+        );
     }
 
     public static function getModelAggregateRoot(): UserAggregate

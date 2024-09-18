@@ -13,7 +13,8 @@ new #[Layout('components.layouts.guest')] class extends Component
 {
     use WithFileUploads;
 
-    public string $name = '';
+    public string $firstname = '';
+    public string $lastname = '';
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
@@ -25,7 +26,8 @@ new #[Layout('components.layouts.guest')] class extends Component
     public function register(): void
     {
         $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'string', 'confirmed', Rules\Password::defaults()],
             'profilePicture' => ['nullable', 'image', 'max:2048'],
@@ -79,11 +81,18 @@ new #[Layout('components.layouts.guest')] class extends Component
             
         </div>
 
-        <!-- Name -->
+        <!-- First Name -->
         <div class="mt-5">
-            <x-input-label for="name" :value="__('Name')" />
-            <x-forms.text-input wire:model="name" id="name" class="block mt-1 w-full" type="text" name="name" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <x-input-label for="firstname" :value="__('First name')" />
+            <x-forms.text-input wire:model="firstname" id="firstname" class="block mt-1 w-full" type="text" name="firstname" required autofocus autocomplete="firstname" />
+            <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
+        </div>
+
+        <!-- Last Name -->
+        <div class="mt-5">
+            <x-input-label for="lastname" :value="__('Last name')" />
+            <x-forms.text-input wire:model="lastname" id="lastname" class="block mt-1 w-full" type="text" name="lastname" required autofocus autocomplete="lastname" />
+            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
 
         <!-- Email Address -->

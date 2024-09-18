@@ -18,8 +18,9 @@ class DatabaseSeeder extends Seeder
         User::makeAggregate()
             ->create(
                 User::factory()->make([
-                    'name'  => 'Test User',
-                    'email' => 'test@example.com',
+                    'firstname' => 'User',
+                    'lastname'  => 'Test',
+                    'email'     => 'test@example.com',
                 ])->getAttributes()
             )
             ->persist();
@@ -27,8 +28,9 @@ class DatabaseSeeder extends Seeder
         User::makeAggregate()
             ->create(
                 User::factory()->make([
-                    'name'  => 'Test2 User',
-                    'email' => 'test2@example.com',
+                    'firstname' => 'User2',
+                    'lastname'  => 'Test2',
+                    'email'     => 'test2@example.com',
                 ])->getAttributes()
             )
             ->persist();

@@ -58,6 +58,9 @@
         "lint": [
             "./vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
         ],
+        "clear": [
+            "php artisan optimize:clear"
+        ],
         "clean": [
             "./vendor/bin/php-cs-fixer fix -v --show-progress=dots",
             "@php artisan test"

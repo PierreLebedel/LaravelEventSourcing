@@ -47,7 +47,7 @@ new class extends Component
    
                             <x-user-avatar class="mr-2" />
                             
-                            <div x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
+                            <div x-data="{{ json_encode(['firstname' => auth()->user()->firstname]) }}" x-text="firstname" x-on:profile-updated.window="firstname = $event.detail.firstname"></div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
