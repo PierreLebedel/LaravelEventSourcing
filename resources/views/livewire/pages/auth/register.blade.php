@@ -74,7 +74,7 @@ new #[Layout('components.layouts.guest')] class extends Component
                 @endif
             </div>
             <div class="grow">
-                <x-input-label for="profilePicture" :value="__('Profile picture')" />
+                <x-forms.input-label for="profilePicture" :value="__('Profile picture')" />
                 <x-forms.file-input wire:model="profilePicture" class="mt-1 block w-full" name="profilePicture" id="profilePicture" accept="image/*" />
                 <x-input-error class="mt-2" :messages="$errors->get('profilePicture')" />
             </div>
@@ -83,28 +83,28 @@ new #[Layout('components.layouts.guest')] class extends Component
 
         <!-- First Name -->
         <div class="mt-5">
-            <x-input-label for="firstname" :value="__('First name')" />
+            <x-forms.input-label for="firstname" :value="__('First name')" />
             <x-forms.text-input wire:model="firstname" id="firstname" class="block mt-1 w-full" type="text" name="firstname" required autofocus autocomplete="firstname" />
             <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
         </div>
 
         <!-- Last Name -->
         <div class="mt-5">
-            <x-input-label for="lastname" :value="__('Last name')" />
+            <x-forms.input-label for="lastname" :value="__('Last name')" />
             <x-forms.text-input wire:model="lastname" id="lastname" class="block mt-1 w-full" type="text" name="lastname" required autofocus autocomplete="lastname" />
             <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
+            <x-forms.input-label for="email" :value="__('Email')" />
             <x-forms.text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-forms.input-label for="password" :value="__('Password')" />
 
             <x-forms.text-input wire:model="password" id="password" class="block mt-1 w-full"
                             type="password"
@@ -116,7 +116,7 @@ new #[Layout('components.layouts.guest')] class extends Component
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-forms.input-label for="password_confirmation" :value="__('Confirm Password')" />
 
             <x-forms.text-input wire:model="password_confirmation" id="password_confirmation" class="block mt-1 w-full"
                             type="password"

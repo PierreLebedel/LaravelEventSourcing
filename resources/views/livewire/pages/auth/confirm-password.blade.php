@@ -41,7 +41,7 @@ new #[Layout('components.layouts.guest')] class extends Component
     <form wire:submit="confirmPassword">
         <!-- Password -->
         <div>
-            <x-input-label for="password" :value="__('Password')" />
+            <x-forms.input-label for="password" :value="__('Password')" />
 
             <x-forms.text-input wire:model="password"
                           id="password"

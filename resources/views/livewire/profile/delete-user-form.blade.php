@@ -57,7 +57,7 @@ new class extends Component
             </p>
 
             <div class="mt-6">
-                <x-input-label for="password" value="{{ __('Password') }}" class="sr-only" />
+                <x-forms.input-label for="password" value="{{ __('Password') }}" class="sr-only" />
 
                 <x-forms.text-input
                     wire:model="password"
