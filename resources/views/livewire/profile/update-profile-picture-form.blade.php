@@ -66,7 +66,7 @@ new class extends Component {
         <div>
             <x-forms.input-label for="profilePicture" :value="__('Profile picture')" />
             <x-forms.file-input wire:model="profilePicture" required class="mt-1 block w-full" name="profilePicture" id="profilePicture" accept="image/*" />
-            <x-input-error class="mt-2" :messages="$errors->get('profilePicture')" />
+            <x-forms.input-error class="mt-2" :messages="$errors->get('profilePicture')" />
         </div>
 
 

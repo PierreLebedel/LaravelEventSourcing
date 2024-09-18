@@ -88,19 +88,19 @@ new class extends Component
         <div>
             <x-forms.input-label for="firstname" :value="__('First name')" />
             <x-forms.text-input wire:model="firstname" id="firstname" name="firstname" type="text" class="mt-1 block w-full" required autofocus autocomplete="firstname" />
-            <x-input-error class="mt-2" :messages="$errors->get('firstname')" />
+            <x-forms.input-error class="mt-2" :messages="$errors->get('firstname')" />
         </div>
 
         <div>
             <x-forms.input-label for="lastname" :value="__('Last name')" />
             <x-forms.text-input wire:model="lastname" id="lastname" name="lastname" type="text" class="mt-1 block w-full" required autofocus autocomplete="lastname" />
-            <x-input-error class="mt-2" :messages="$errors->get('lastname')" />
+            <x-forms.input-error class="mt-2" :messages="$errors->get('lastname')" />
         </div>
 
         <div>
             <x-forms.input-label for="email" :value="__('Email')" />
             <x-forms.text-input wire:model="email" id="email" name="email" type="email" class="mt-1 block w-full" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+            <x-forms.input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if (auth()->user() instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! auth()->user()->hasVerifiedEmail())
                 <div>

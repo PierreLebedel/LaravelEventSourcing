@@ -76,7 +76,7 @@ new #[Layout('components.layouts.guest')] class extends Component
             <div class="grow">
                 <x-forms.input-label for="profilePicture" :value="__('Profile picture')" />
                 <x-forms.file-input wire:model="profilePicture" class="mt-1 block w-full" name="profilePicture" id="profilePicture" accept="image/*" />
-                <x-input-error class="mt-2" :messages="$errors->get('profilePicture')" />
+                <x-forms.input-error class="mt-2" :messages="$errors->get('profilePicture')" />
             </div>
             
         </div>
@@ -85,21 +85,21 @@ new #[Layout('components.layouts.guest')] class extends Component
         <div class="mt-5">
             <x-forms.input-label for="firstname" :value="__('First name')" />
             <x-forms.text-input wire:model="firstname" id="firstname" class="block mt-1 w-full" type="text" name="firstname" required autofocus autocomplete="firstname" />
-            <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
+            <x-forms.input-error :messages="$errors->get('firstname')" class="mt-2" />
         </div>
 
         <!-- Last Name -->
         <div class="mt-5">
             <x-forms.input-label for="lastname" :value="__('Last name')" />
             <x-forms.text-input wire:model="lastname" id="lastname" class="block mt-1 w-full" type="text" name="lastname" required autofocus autocomplete="lastname" />
-            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+            <x-forms.input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-forms.input-label for="email" :value="__('Email')" />
             <x-forms.text-input wire:model="email" id="email" class="block mt-1 w-full" type="email" name="email" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            <x-forms.input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
@@ -111,7 +111,7 @@ new #[Layout('components.layouts.guest')] class extends Component
                             name="password"
                             required autocomplete="new-password" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <x-forms.input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
         <!-- Confirm Password -->
@@ -122,7 +122,7 @@ new #[Layout('components.layouts.guest')] class extends Component
                             type="password"
                             name="password_confirmation" required autocomplete="new-password" />
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            <x-forms.input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
         <div class="flex items-center justify-end mt-4">
