@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-gray-100 flex flex-col">
             <livewire:layout.navigation />
 
             <!-- Page Heading -->
@@ -28,9 +28,18 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-grow">
                 {{ $slot }}
             </main>
+
+            <footer class="bg-white border-t border-gray-200">
+                <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-sm text-gray-500">
+                    <div class="flex w-full items-center justify-between">
+                        <div>Footer</div>
+                        <div>{{ config('app.name') }}</div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
