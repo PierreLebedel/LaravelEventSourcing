@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Traits\FactorySupportsProjections;
+use App\Concerns\Factories\SupportsProjections;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
-    use FactorySupportsProjections;
+    use SupportsProjections;
 
     protected static ?string $password;
 

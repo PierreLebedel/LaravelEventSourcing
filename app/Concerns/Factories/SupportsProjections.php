@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Traits;
+namespace App\Concerns\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-trait FactorySupportsProjections
+trait SupportsProjections
 {
     public function newModel(array $attributes = [])
     {

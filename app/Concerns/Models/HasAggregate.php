@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Traits;
+namespace App\Concerns\Models;
 
 use App\Aggregates\ModelAggregateRoot;
 use Illuminate\Support\Str;
 
-trait ModelHasAggregate
+trait HasAggregate
 {
     public static function uuid(string $uuid): ?static
     {

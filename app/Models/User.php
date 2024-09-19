@@ -5,8 +5,8 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 use App\Aggregates\UserAggregate;
-use App\Contracts\ModelHasAggregateContract;
-use App\Traits\ModelHasAggregate;
+use App\Concerns\Models\HasAggregate;
+use App\Contracts\Models\HasAggregateContract;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -29,17 +29,16 @@ class User extends Projection implements
     AuthenticatableContract,
     AuthorizableContract,
     CanResetPasswordContract,
-    ModelHasAggregateContract,
+    HasAggregateContract,
     HasMedia
 {
     use Authenticatable;
     use Authorizable;
     use CanResetPassword;
+    use HasAggregate;
     use HasFactory;
     use HasUuids;
-    use HasUuids;
     use InteractsWithMedia;
-    use ModelHasAggregate;
     use MustVerifyEmail;
     use Notifiable;
     use SoftDeletes;

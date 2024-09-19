@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Contracts;
+namespace App\Contracts\Models;
 
 use App\Aggregates\ModelAggregateRoot;
 
-interface ModelHasAggregateContract
+interface HasAggregateContract
 {
     public static function uuid(string $uuid): ?static;
 
