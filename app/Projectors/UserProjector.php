@@ -17,6 +17,11 @@ class UserProjector extends ModelProjector
         return new User();
     }
 
+    public function onStartingEventReplay()
+    {
+        User::truncate();
+    }
+
     public function onUserRegisteredEvent(UserCreatedEvent $event)
     {
         $attributes = $event->attributes + [

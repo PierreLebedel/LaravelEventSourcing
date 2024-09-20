@@ -33,9 +33,6 @@ new class extends Component
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('alerts')" :active="request()->routeIs('alerts')" wire:navigate>
-                        {{ __('Alerts demo') }}
-                    </x-nav-link>
                 </div>
             </div>
 
@@ -103,10 +100,6 @@ new class extends Component
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile')" wire:navigate>
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <x-responsive-nav-link :href="route('alerts')" wire:navigate>
-                    {{ __('Alerts demo') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
